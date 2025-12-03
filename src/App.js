@@ -38,7 +38,10 @@ const INTEREST_BACKGROUNDS = {
   Memes: memesBg,
 };
 
-const socket = io("http://localhost:5000"); // update later for deployed backend
+// const socket = io("http://localhost:5000"); // update later for deployed backend
+const socket = io("https://interest-chat-backend-production.up.railway.app", {
+    transports: ["websocket"],
+});
 
 const INTERESTS = [
   "Sports",
