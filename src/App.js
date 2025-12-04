@@ -41,6 +41,8 @@ const INTEREST_BACKGROUNDS = {
 // const socket = io("http://localhost:5000"); // update later for deployed backend
 const socket = io("https://interest-chat-backend-production.up.railway.app", {
     transports: ["websocket"],
+    reconnectionAttempts: 5,
+    reconnectionDelay: 1000,
 });
 
 const INTERESTS = [
@@ -324,7 +326,11 @@ export default function App() {
     const fd = new FormData();
     fd.append("file", file);
     try {
-      const res = await fetch("http://localhost:5000/upload", { method: "POST", body: fd });
+      const res = await fetch("https://interest-chat-backend-production.up.railway.app/upload", {
+    method: "POST",
+    body: fd
+});
+
       const json = await res.json();
       if (json.url) {
         if (target === "group") {
