@@ -39,7 +39,7 @@ const INTEREST_BACKGROUNDS = {
 };
 
 // const socket = io("http://localhost:5000"); // update later for deployed backend
-const socket = io("https://interest-chat-backend-production.up.railway.app", {
+const socket = io("https://interest-chat-backend.onrender.com", {
     transports: ["websocket"],
     reconnectionAttempts: 5,
     reconnectionDelay: 1000,
